@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "Joke API",
+    "_postman_id": "b8b9f3a2-1c4d-4f6f-9c3d-0a2b6f5e7d9a",
+    "description": "Collection for the Joke API (local development).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Random Joke",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/random",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["random"]
+        }
+      }
+    },
+    {
+      "name": "Get Joke by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/jokes/10",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["jokes", "10"]
+        }
+      }
+    },
+    {
+      "name": "Get Jokes by Type",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/jokes/type/Puns",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["jokes", "type", "Puns"]
+        }
+      }
+    },
+    {
+      "name": "Create Joke (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "jokeText", "value": "Why did the chicken cross the road?", "type": "text" },
+            { "key": "jokeType", "value": "Puns", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/joker",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["joker"]
+        }
+      }
+    },
+    {
+      "name": "Replace Joke (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "jokeText", "value": "New joke text.", "type": "text" },
+            { "key": "jokeType", "value": "Puns", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/jokes/10",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["jokes", "10"]
+        }
+      }
+    },
+    {
+      "name": "Patch Joke (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "jokeText", "value": "Updated partial text.", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/jokes/10",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["jokes", "10"]
+        }
+      }
+    },
+    {
+      "name": "Delete Joke by ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/jokes/10",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["jokes", "10"]
+        }
+      }
+    },
+    {
+      "name": "Delete All Jokes (admin)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/deleteAllJokes/4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["deleteAllJokes", "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT"]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Random Joke Generator</title>
+	<style>
+		:root {
+			--bg: #f6f8fb;
+			--card: #ffffff;
+			--text: #1b2430;
+			--muted: #5f6b7a;
+			--accent: #0077b6;
+			--border: #d9e1ea;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+			background: linear-gradient(180deg, #eef3f9 0%, #f9fbfd 100%);
+			color: var(--text);
+			min-height: 100vh;
+			display: grid;
+			place-items: center;
+			padding: 24px;
+		}
+
+		.card {
+			width: min(720px, 100%);
+			background: var(--card);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 28px;
+			box-shadow: 0 12px 28px rgba(17, 34, 68, 0.08);
+		}
+
+		h1 {
+			margin: 0 0 8px;
+			font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+		}
+
+		.subtitle {
+			margin: 0 0 24px;
+			color: var(--muted);
+		}
+
+		.joke-type {
+			display: inline-block;
+			margin-bottom: 16px;
+			font-size: 0.85rem;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: var(--accent);
+			font-weight: 700;
+		}
+
+		.joke-text {
+			font-size: 1.1rem;
+			line-height: 1.6;
+			margin: 0;
+			white-space: pre-wrap;
+		}
+
+		.delivery {
+			margin-top: 14px;
+			color: #2f3b4a;
+		}
+
+		.actions {
+			margin-top: 26px;
+		}
+
+		.btn {
+			display: inline-block;
+			text-decoration: none;
+			border: 0;
+			border-radius: 10px;
+			background: var(--accent);
+			color: #fff;
+			padding: 10px 16px;
+			font-weight: 700;
+			cursor: pointer;
+		}
+
+		.empty {
+			padding: 14px;
+			border-radius: 10px;
+			background: #f7fbff;
+			color: var(--muted);
+			border: 1px dashed var(--border);
+		}
+	</style>
+</head>
+<body>
+	<main class="card">
+		<h1>Random Joke Generator</h1>
+		<p class="subtitle">A fresh joke from JokeAPI every time you load this page.</p>
+
+		<% if (typeof joke !== "undefined" && joke) { %>
+			<span class="joke-type"><%= joke.category %> • <%= joke.type %></span>
+
+			<% if (joke.type === "single") { %>
+				<p class="joke-text"><%= joke.joke %></p>
+			<% } else { %>
+				<p class="joke-text"><strong><%= joke.setup %></strong></p>
+				<p class="joke-text delivery"><%= joke.delivery %></p>
+			<% } %>
+		<% } else { %>
+			<div class="empty">No joke data was passed to the template yet.</div>
+		<% } %>
+
+		<div class="actions">
+			<a class="btn" href="/">Get Another Joke</a>
+		</div>
+	</main>
+</body>
+</html>
